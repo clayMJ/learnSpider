@@ -1,0 +1,41 @@
+HTTP采用URL定位网络资源标识
+URL:
+Http://host[:port][path]
+host:ip地址
+port:端口号
+path:路径
+
+HTTP对资源操作
+GET,HEAD,POST,PUT,PATCH,DELETE
+
+PATCH和PUT的区别
+PATCH局部更新
+PUT全部更新，若局部更新要将其他部分复制上去
+
+requests.request(method,url,**kwargs)
+**kwargs:控制访问的参数
+  灵活使用：
+  params:字典或字节序列，作为参数增加到url中
+  data:字典、字节寻猎或文件对象，作为Request的内容
+  json:JSON格式的数据，作为Request的内容
+  headers:字典,HTTP定制头
+  看着玩：
+  cookies:字典活着CookieJar,Request中的Cookie
+  auth:元组，支持HTTP认证功能
+  files:字典类型，传输文件
+  timeout:超时时间,秒为单位
+  proxies：字典类型，设定访问代理服务器，增加登陆认证
+  allow_redirects:True/False,默认为True，重定向开关
+  stream:默认True，获取内容立即下载
+  verify:默认True,认证SSH证书开关
+  cert：保存本地SSL证书路径
+
+框架:
+try:
+    r=requests.get(url,timeout=30)
+	r.raise_for_status()#如果返回对象不是200,返回一次异常
+	r.encoding=r.apparent_encoding
+	return r.text
+except:
+    return "error"
+
