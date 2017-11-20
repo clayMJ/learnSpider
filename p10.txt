@@ -1,41 +1,55 @@
-标签:<p class="title">...</p>
-bs4引入方式:
-from bs4 import BeautifulSoup
-import bs4
+Requests
+自动爬去html页面自动网络请求提交
+robot.txt
+网络爬虫排除标准
+Beautiful Soup
+解析html页面
+Projects
+实战项目A/B
+Re
+正则表达式库
+Scrapy*
+中规模速度更快的网络爬虫
 
-from bs4 import BeautifulSoup
-soup = BeautifulSoup("<html>data</html>","html.parser")
-soup2 = BeautifulSoup(open("/learnspider/demo.html"),"html.parser")
+Python IDE
+1.交互式
+IDLE(入门，代码不超过300行)
+Sublime Text(专业编程工具)
+2.集成
+通用类
+Wing(收费，调试功能丰富,适合多人开发)
+Eclipse+PyDev(开源)
+PyCharm(简单，集成度高，适合复杂编程)
+科学计算，数据分析
+Canopy(贵,500个库)
+Anaconda(开源，800多个库)
 
-BeautifulSoup基本元素
-Tag：标签，以<></>为开头和结尾
-Name:标签名，<p>...</p>名字为'p'
-Attributes:标签属性，字典形式组织,格式:<tag>.attrs
-NavigableString:标签内非属性字符串，<>...</>中字符串,格式:<tag>.string
-Comment:标签内字符串注释部分，一种特殊的Comment类型
-标签.<tag> 名称.name 属性.attrs 非属性字符串／注释.string
+定向网络数据爬取和网络解析
+Requests:
+简单简洁 
+官方文档:python-requests.org
+r=requests.get(url,params=None,**kwargs)
+params:url格外参数
+kwargs：12个可访问参数
 
-遍历
-下行遍历
-.contents 子节点列表，将<tag>所有儿子节点存入列表
-.children 子节点迭代类型，与.contents类似，用于循环遍历儿子节点
-.descendants 子孙节点的迭代类型，包含所有子孙节点，用于遍历循环
+Response对象属性
+r.status_code 
+200连接成功 404失败
+r.text
+url对应页面内容
+r.encoding 
+HTTP header中猜测的响应内容编码方式,如果header中不存在charset,认为编码为ISO-8859-1
+r.apparent_encoding 
+从内容中分析出的响应内容编码方式(备用编码方式)
+r.content 
+HTTP内容响应的二进制方式
 
-平行遍历 
-.next_sibling  返回按照html文本顺讯的下一个平行节点标签
-.previous_sibling 返回按照html文本顺序的上一个平行节点标签 
-.next_siblings  迭代类型，返回按照html文本顺序的后续所有平行节点标签
-.previous_siblings  迭代类型，返回按照html文本顺讯的前续所有平行节点标签
+Requests库异常
+request.ConnectionError
+request.HTTPError
+request.URLRequired
+request.TooManyRedirects 连接远程服务超时异常
+request.Timeout 请求URL异常产生超时异常
 
-平行遍历发生在同一个父亲节点下的格节点间
+r.raise_for_status() 判断response异常类型
 
-prettify()  :增加换行符，增加可读性
-
-
-			<html>
-	
-	<head>       <body>
-
-	<title>    <p>    <p>
-
-	           <b>   <a> <a>

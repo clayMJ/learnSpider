@@ -1,0 +1,15 @@
+爬虫尺寸分：
+爬取网页，玩转网页(Requests库):小规模，速度不敏感
+爬去网站，系列网站(Scrapy库)：中规模，速度敏感
+爬取全网:大规模，定制开发,速度关键
+
+网络爬虫限制
+来源审查:判断User-Agent协议头
+发布公告:Robots协议
+
+Robots协议  (Robot Exclusion Standard)
+#*为所有，/为目录
+User-agent:*
+Disallow:/
+
+爬虫：自动识别Robots协议，然后进行爬取
