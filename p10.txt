@@ -28,3 +28,5 @@ Comment:标签内字符串注释部分，一种特殊的Comment类型
 .previous_siblings  迭代类型，返回按照html文本顺讯的前续所有平行节点标签
 
 平行遍历发生在同一个父亲节点下的格节点间
+
+prettify()  :增加换行符，增加可读性
