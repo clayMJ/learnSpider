@@ -30,3 +30,12 @@ Comment:标签内字符串注释部分，一种特殊的Comment类型
 平行遍历发生在同一个父亲节点下的格节点间
 
 prettify()  :增加换行符，增加可读性
+
+
+			<html>
+	
+	<head>       <body>
+
+	<title>    <p>    <p>
+
+	           <b>   <a> <a>
