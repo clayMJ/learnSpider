@@ -1,0 +1,30 @@
+标签:<p class="title">...</p>
+bs4引入方式:
+from bs4 import BeautifulSoup
+import bs4
+
+from bs4 import BeautifulSoup
+soup = BeautifulSoup("<html>data</html>","html.parser")
+soup2 = BeautifulSoup(open("/learnspider/demo.html"),"html.parser")
+
+BeautifulSoup基本元素
+Tag：标签，以<></>为开头和结尾
+Name:标签名，<p>...</p>名字为'p'
+Attributes:标签属性，字典形式组织,格式:<tag>.attrs
+NavigableString:标签内非属性字符串，<>...</>中字符串,格式:<tag>.string
+Comment:标签内字符串注释部分，一种特殊的Comment类型
+标签.<tag> 名称.name 属性.attrs 非属性字符串／注释.string
+
+遍历
+下行遍历
+.contents 子节点列表，将<tag>所有儿子节点存入列表
+.children 子节点迭代类型，与.contents类似，用于循环遍历儿子节点
+.descendants 子孙节点的迭代类型，包含所有子孙节点，用于遍历循环
+
+平行遍历 
+.next_sibling  返回按照html文本顺讯的下一个平行节点标签
+.previous_sibling 返回按照html文本顺序的上一个平行节点标签 
+.next_siblings  迭代类型，返回按照html文本顺序的后续所有平行节点标签
+.previous_siblings  迭代类型，返回按照html文本顺讯的前续所有平行节点标签
+
+平行遍历发生在同一个父亲节点下的格节点间
