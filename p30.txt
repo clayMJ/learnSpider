@@ -1,0 +1,85 @@
+正则表达式  regular expression  RE :简洁
+通用字符串表达式
+表达文本类型特征
+同时查找或替换一组字符串
+匹配字符串的全部或部分
+
+p开头，一个y或无穷多个y
+py+
+py开头后续不多于10个字符，后续不能是p或y
+py+[^py]{0,10}
+编译
+p=re.compile(regex)
+
+
+常用操作符
+.     任何单个字符
+[]    字符集，取值范围
+[^]   非字符集，排除范围
+*     前一个字符的0或无限次扩展 
++     前一个字符的1或无限次扩展
+?     前一个字符的0或1次拓展
+|     左右表达式任一个
+{m}   拓展前一个字符m次
+{m,n} 拓展前一个字符m到n次（含n）
+^     以...开头
+$     以...结尾
+()    分组标记,内部职能用|字符
+\d    数字
+\w    单词字符  等于[0-9a-zA-Z]
+
+^[A-Za-z]+$   由26字母组成的字符串
+^-?\d+$       整数形式字符串
+^[0-9]*[1-9][0-9]*$   正整数
+[1-9]\d{5}    境内邮政编码
+[\u4e00-\u9fa5]   匹配中文字
+\d{3}-\d{8}|\d{4}-\d{7}   国内电话号码
+
+匹配IP地址
+\d.\d.\d.\d
+(([1-9]?\d|1\d{2}|2[0-4]\d25[0-5]).){3}([1-9]?\d|1\d{2}|2[0-4]\d|25[0-5])
+
+
+Re常用功能函数
+re.search(pattern,string,flags=0)
+flags使用时控制标记:re.I 忽略大小写区分
+                    re.M ^每行当作匹配开始
+				    re.S 默认匹配除换行外所有字符	
+eg:import re 
+   match = re.search(r'[1-9]\d{5}', 'BIT 100081')
+   if match:
+        print(match.group(0))
+
+re.match(pattern,string,flags=0)
+eg:import re
+   match = re.match(r'[1-9]\d{5}', '')
+   if match:
+        match.group(0)
+
+re.findall(pattern,string,flags=0)
+eg:import re
+   ls=re.findall(r'',)
+
+re.split(pattern,string,maxsplit=0,flags=0)
+maxsplit:最大分割数
+eg: 
+
+re.finditer(pattern,string,flags=0)
+
+
+
+re.sub(pattern,repl,string,count=0,flags=0)        
+repl:匹配的字符串
+count:替换次数
+
+.start .end
+
+Re库默认采用贪婪匹配，输出最大匹配
+最小匹配
+*?
++?
+??
+{m,n}?
+
+
+
